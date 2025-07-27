@@ -43,8 +43,7 @@ options:
   --git-directory       Path to the git mirror directory (default: gits)
   --raw-files-directory
                         Path to the raw files mirror directory (default: files)
-  --exclude-alias [ ...]
-                        List of aliases to exclude in bst-to-lorry
+  --exclude-alias       Comma separated list of aliases to exclude in bst-to-lorry
   --push                Push the branch to the remote repository
   --create-mr           Create a Gitlab merge request (implies --push)
   --lorry2              Use lorry2 format in bst-to-lorry

@@ -508,10 +508,10 @@ def main() -> int:
     )
     parser.add_argument(
         "--exclude-alias",
-        nargs="*",
+        type=str,
         metavar="",
-        default=[],
-        help="List of aliases to exclude in bst-to-lorry",
+        default="",
+        help="Comma separated list of aliases to exclude in bst-to-lorry",
     )
     parser.add_argument(
         "--push",
@@ -556,12 +556,13 @@ def main() -> int:
     default_raw_files_dir = str(Path(git_toplevel) / "files")
     args.git_directory = default_git_dir
     args.raw_files_directory = default_raw_files_dir
+    exclude_aliases = [s.strip() for s in args.exclude_alias.split(",") if s.strip()]
 
     status, branch = process_mirroring(
         mirror_config,
         args.git_directory,
         args.raw_files_directory,
-        args.exclude_alias,
+        exclude_aliases,
         args.base_branch,
         args.lorry2,
     )
