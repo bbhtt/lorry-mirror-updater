@@ -45,8 +45,8 @@ options:
                         Path to the raw files mirror directory (default: files)
   --exclude-alias [ ...]
                         List of aliases to exclude in bst-to-lorry (default: fdsdk_git, fdsdk_mirror)
-  --push                Push the branch to remote repository
-  --create-mr           Push the branch to remote repository
+  --push                Push the branch to the remote repository
+  --create-mr           Create a Gitlab merge request (implies --push)
   --lorry2              Use lorry2 format in bst-to-lorry
 ```
 
@@ -81,7 +81,7 @@ update-mirrors:
     - git config user.name "mirror_updater_bot"
     - git config user.email "mirror_updater_bot@localhost"
     - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
-    - lorry-mirror-updater --push --create-mr
+    - lorry-mirror-updater --create-mr
 ```
 
 ### Development

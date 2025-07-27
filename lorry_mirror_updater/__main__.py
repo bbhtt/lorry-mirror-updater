@@ -520,13 +520,13 @@ def main() -> int:
         "--push",
         default=False,
         action="store_true",
-        help="Push the branch to remote repository",
+        help="Push the branch to the remote repository",
     )
     parser.add_argument(
         "--create-mr",
         default=False,
         action="store_true",
-        help="Push the branch to remote repository",
+        help="Create a Gitlab merge request (implies --push)",
     )
     parser.add_argument(
         "--lorry2",
@@ -536,13 +536,11 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    if args.create_mr and not args.push:
-        logging.error("--create-mr requires --push")
-        return 1
-
-    if args.create_mr and not GITLAB_IMPORTED:
-        logging.error("--create-mr used but python-gitlab not imported")
-        return 1
+    if args.create_mr:
+        args.push = True
+        if not GITLAB_IMPORTED:
+            logging.error("--create-mr is used but python-gitlab was not imported")
+            return 1
 
     if not validate_environment():
         return 1
