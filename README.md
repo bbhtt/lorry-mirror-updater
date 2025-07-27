@@ -25,8 +25,8 @@ following variables available: `GITLAB_API_KEY` and
 `CI_PROJECT_ID, CI_SERVER_URL` (Gitlab predefined).
 
 Note, that it is best to run it inside a docker image coming with
-`bst, bst-to-lorry` and all other dependencies, such as something based
-on `registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images/bst2:latest`
+`bst, bst-to-lorry` and all other dependencies, such as
+`ghcr.io/bbhtt/fdsdk-build-env:latest`
 
 ```
 Lorry mirror updater
