@@ -1,0 +1,15 @@
+{
+    "https://gitlab.com/example/example_bst_project.git": {
+        "master": [
+            "example_element_stack.bst"
+        ],
+        "release/24.08": [
+            "example_other_element_stack.bst"
+        ]
+    },
+    "https://gitlab.com/example/example_other_bst_project.git": {
+        "main": [
+            "example_element_stack.bst"
+        ]
+    }
+}

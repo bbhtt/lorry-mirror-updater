@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: main
+    paths-ignore:
+      - '.gitignore'
+      - 'LICENSE'
+      - 'README.md'
+  pull_request:
+    branches: main
+    paths-ignore:
+      - '.gitignore'
+      - 'LICENSE'
+      - 'README.md'
+  workflow_dispatch:
+
+jobs:
+  ci:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: ci-${{ matrix.platform }}-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+        # 4.2.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+
+      - name: Install uv
+        # 5.4.0
+        uses: astral-sh/setup-uv@22695119d769bdb6f7032ad67b9bca0ef8c4a174
+        with:
+          version: "0.7.5"
+          enable-cache: true
+          cache-dependency-glob: |
+            **/uv.lock
+            **/pyproject.toml
+
+      - name: Install dependencies
+        run: |
+           sudo apt-get update && sudo apt-get install -y \
+            --no-install-recommends git
+
+      - name: Install python dependencies
+        run: uv sync --all-extras --all-groups --frozen
+
+      - name: Check code formatting
+        run: uv run ruff format --check
+
+      - name: Lint
+        run: uv run ruff check --output-format=github
+
+      - name: Check python types
+        run: uv run mypy .
