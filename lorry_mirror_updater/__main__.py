@@ -510,11 +510,8 @@ def main() -> int:
         "--exclude-alias",
         nargs="*",
         metavar="",
-        default=["fdsdk_git", "fdsdk_mirror"],
-        help=(
-            "List of aliases to exclude in bst-to-lorry "
-            "(default: fdsdk_git, fdsdk_mirror)"
-        ),
+        default=[],
+        help="List of aliases to exclude in bst-to-lorry",
     )
     parser.add_argument(
         "--push",
