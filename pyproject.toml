@@ -11,7 +11,7 @@ exclude = ["**/__pycache__"]
 
 [project]
 name = "lorry_mirror_updater"
-version = "0.1.0"
+version = "0.1.1"
 description = "Keep your lorry mirror definitions up-to-date!"
 authors = [
   {name = "bbhtt", email = "bbhtt@bbhtt.space"},

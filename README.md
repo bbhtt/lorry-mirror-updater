@@ -10,7 +10,7 @@ mirroring-config repository.
 ### Install
 
 ```sh
-pip install --user git+https://github.com/bbhtt/lorry-mirror-updater.git@v0.1.0#egg=lorry_mirror_updater
+pip install --user git+https://github.com/bbhtt/lorry-mirror-updater.git@v0.1.1#egg=lorry_mirror_updater
 ```
 
 [python-gitlab](https://python-gitlab.readthedocs.io/en/stable/) is
