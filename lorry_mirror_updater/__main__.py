@@ -484,7 +484,7 @@ def main() -> int:
     parser.add_argument(
         "--mirror-config",
         default="mirrors.json",
-        help="Mirror config file",
+        help="Path to the lorry-mirror-updater config file (default: mirrors.json)",
         type=str,
         metavar="",
     )
@@ -492,26 +492,29 @@ def main() -> int:
         "--base-branch",
         default="main",
         metavar="",
-        help="Base branch of mirroring-config repository",
+        help="Base branch of mirroring-config repository (default: main)",
     )
     parser.add_argument(
         "--git-directory",
         default=default_git_dir,
         metavar="",
-        help="Path to the Git directory for bst-to-lorry",
+        help="Path to the git mirror directory (default: gits)",
     )
     parser.add_argument(
         "--raw-files-directory",
         default=default_raw_files_dir,
         metavar="",
-        help="Path to the raw files directory for bst-to-lorry",
+        help="Path to the raw files mirror directory (default: files)",
     )
     parser.add_argument(
         "--exclude-alias",
         nargs="*",
         metavar="",
         default=["fdsdk_git", "fdsdk_mirror"],
-        help="List of aliases to exclude in bst-to-lorry",
+        help=(
+            "List of aliases to exclude in bst-to-lorry "
+            "(default: fdsdk_git, fdsdk_mirror)"
+        ),
     )
     parser.add_argument(
         "--push",

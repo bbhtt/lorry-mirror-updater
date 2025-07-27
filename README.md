@@ -15,7 +15,7 @@ pip install --user git+https://github.com/bbhtt/lorry-mirror-updater.git@v0.1.0#
 
 [python-gitlab](https://python-gitlab.readthedocs.io/en/stable/) is
 optionally used to send Gitlab merge requests. `GITLAB_API_KEY`
-environment variable is used for the API to key to send MRs and delete
+environment variable is used for the API key to send MRs and delete
 old branches.
 
 ### Usage
@@ -38,13 +38,13 @@ from a clean checkout of the mirroring-config repository.
 options:
   -h, --help            Show this help message and exit
   --version             Show the version and exit
-  --mirror-config       Mirror config file
-  --base-branch         Base branch of mirroring-config repository
-  --git-directory       Path to the Git directory for bst-to-lorry
+  --mirror-config       Path to the lorry-mirror-updater config file (default: mirrors.json)
+  --base-branch         Base branch of mirroring-config repository (default: main)
+  --git-directory       Path to the git mirror directory (default: gits)
   --raw-files-directory
-                        Path to the raw files directory for bst-to-lorry
+                        Path to the raw files mirror directory (default: files)
   --exclude-alias [ ...]
-                        List of aliases to exclude in bst-to-lorry
+                        List of aliases to exclude in bst-to-lorry (default: fdsdk_git, fdsdk_mirror)
   --push                Push the branch to remote repository
   --create-mr           Push the branch to remote repository
   --lorry2              Use lorry2 format in bst-to-lorry
