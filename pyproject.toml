@@ -14,7 +14,7 @@ name = "lorry_mirror_updater"
 version = "0.1.4"
 description = "Keep your lorry mirror definitions up-to-date!"
 authors = [
-  {name = "bbhtt", email = "bbhtt@bbhtt.space"},
+  {name = "bbhtt", email = "bbhtt@bbhtt.in"},
 ]
 license = {text = "MIT"}
 readme = "README.md"
